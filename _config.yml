@@ -1,0 +1,21 @@
+# Site settings
+title: An Odyssey
+header-img: img/home-bg.png
+email: lair001@gmail.com
+copyright_name: lair001
+description: > # this means to ignore newlines until "baseurl:"
+  From Engineering to Law and Back Again
+baseurl: "" # the subpath of your site, e.g. /blog
+twitter_username: 
+github_username:  lair001
+learn_profile: lair001
+email_username: lair001@gmail.com
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+paginate: 5
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+
+gems: [jekyll-paginate, jekyll-feed]
