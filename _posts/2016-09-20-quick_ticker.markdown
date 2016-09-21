@@ -27,6 +27,10 @@ There was just one "problem".  The CLI was working perfectly and I wanted to be 
 
 Writing a full set of automated unit tests in `Rspec` was easy and inituitive for the most part.  However, I did need to learn how to test output to the dislay and how to program the test scripts to respond to `gets` prompts.  The last major issues were posed while attempting to publish to RubyGems.org.  I created a production clone of my development repository on GitHub since I needed to make some changes that I did not want for development.
 
-Although `Bundle.require` and `require_all` are great tools for development, they will break a deployment.  
+Although `Bundle.require` and `require_all` are great tools for development, they will break a deployment.  I had to replace them with explicit `require` and `require_all` statements for all required gems and files, and superclasses needed to be required before their subclasses.  For future projects, I will likely explicitly keep an executable and an environment file for development and then create separate executable and environment files for production.
+
+Finally, I used `open-uri` to load the fixtures in `Development Mode`.  In order for this to work in production where different operating systems and version control managers may install the gem in different locations, I had to figure out how to grab the absolute path of the gem's installation directory.  I originally intended for `Development Mode` to aid development and maintenance, but it had a lot of upfront cost.  `Development Mode` was fun to make, but it would have been much easier to simply use a testing platform like `Rspec`.  I could have simply written `Rspec` tests that load the fixtures.
+
+You can find Quick Ticker at [RubyGems](https://rubygems.org/gems/qticker) and [GitHub](https://github.com/lair001/stocks-cli-gem).  The version 1.0.5 production repository can be found [here](https://github.com/lair001/qticker-1.0.5-production).
 
 
