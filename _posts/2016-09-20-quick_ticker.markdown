@@ -21,6 +21,12 @@ Now I realized that I was creating a lightweight Object Relational Model (ORM). 
 
 I thought that the rough part of the project was over, and I was wrong.  While developing the Cli class for the command line interface, I made the spontaneous decision to include `Developer Mode` so that the user may load fixtures for debugging if the user was interesting in extending or modifying the gem.  This turned the Cli into a Byzantine maze of flags to track whether the user was in `Developer Mode`.  I was receiving a good lesson as to why Object Oriented Programming (OOP) relies on inheritance and class hierarchies.
 
+I decided to divide the CLI between a Cli superclasses and MainCli and DevCli subclasses.  MainCli would contain code particular to the main (or "normal") CLI while DevCli would contain code particular to `Developer Mode`.  Cli would contain code that was common to both modes.
 
+There was just one "problem".  The CLI was working perfectly and I wanted to be able to easily rollback if my plan went horribly wrong.  Therefore, I created and checked out a new `git` branch with `git co -b cli`.  Thankfully, however, the redesign was successful, and I merged cli branch into the master branch in the end.
+
+Writing a full set of automated unit tests in `Rspec` was easy and inituitive for the most part.  However, I did need to learn how to test output to the dislay and how to program the test scripts to respond to `gets` prompts.  The last major issues were posed while attempting to publish to RubyGems.org.  I created a production clone of my development repository on GitHub since I needed to make some changes that I did not want for development.
+
+Although `Bundle.require` and `require_all` are great tools for development, they will break a deployment.  
 
 
