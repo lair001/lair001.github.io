@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Why learn software development?"
-date:   2016-08-29 00:50:22 +0000
+date:   2016-08-28 20:50:22 -0400
 ---
 
 
@@ -15,4 +15,6 @@ Given these factors and the fact that IT in general is growing rapidly at the ex
 
 My experience with FreeCodeCamp taught me that I respond to coding more as recreation than as work.  The most fun I ever had in an academic pursuit was when working on mathematical proofs.  Mentally, coding feels just like doing a mathematical proof even when the project at hand has nothing to do with mathematics.  In fact, it is likely that my early encounter with Applesoft BASIC imprinted an affinity to coding on me and I like mathematics because I like coding.  Perhaps I never noticed this before because some of my prior coding experience was directly related to mathematics, some of it was related to modding a game, and my experience with Air Force Materiel Command was an exercise in frustration.  In other words, I had other reasons to either enjoy or dislike my prior coding work, and I never had a chance to judge my reaction to coding itself.
 
-During and after some weeks in July and August involving setting up my computers to dual boot in Ubuntu and Windows 10, learning Bash, and participating in a coding competition, I was accepted to both Flatiron School's online program and OSU's online B.S. in Computer Science program.  I intend to participate in both to jump start a career in web development.  Originally, I investigated web development as an alternative means to break into the legal market.  Over the course of the past few months, however, I found that I greatly enjoy coding and find software development and engineering to be a highly relevant and vital endeavor.  Therefore, I do not plan to tie myself to legal software.  Instead, I will see where this ride will take me.
+During and after some weeks in July and August involving setting up my computers to dual boot in Ubuntu and Windows 10, learning Bash, and participating in a coding competition, I was accepted to both Flatiron School's online campus and OSU's online B.S. in Computer Science.  However, I only intend to participate in Flatiron's program.  I am finding that my prior background has already equipped with the tools needed to understand the theoretical underpinnings of computer science, and Flatiron is doing a fine job of teaching me about the practical aspects of web development.
+
+Originally, I investigated web development as an alternative means to break into the legal market.  Over the course of the past few months, however, I found that I greatly enjoy coding and find software development and engineering to be a highly relevant and vital endeavor.  Therefore, I do not plan to tie myself to legal software.  Instead, I will see where this ride will take me.
