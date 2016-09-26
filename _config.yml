@@ -7,7 +7,7 @@ copyright_name: Samuel Lair
 description: > # this means to ignore newlines until "baseurl:"
   From Engineering to Law and Back Again
 baseurl: "" # the subpath of your site, e.g. /blog
-twitter_username: 
+twitter_username: Samuel_Lair
 github_username:  lair001
 learn_profile: lair001
 email_username: lair001@gmail.com
