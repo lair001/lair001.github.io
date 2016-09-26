@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Hashing It Out"
-date:   2016-09-26 03:14:08 +0000
+date:   2016-09-25 23:14:08 -0400
 ---
 
 
@@ -11,7 +11,7 @@ Hashes are useful because arbitrary datasets can be organized as a hash or a nes
 
 Similarly, [`Active Record`](http://guides.rubyonrails.org/active_record_basics.html) respresents databases using a combination of class structure and hashes.  Tables are classes and rows are instances of classes.  The attributes of an instance of a class are columns.  Attributes of an instance are created and assigned dynamically through [mass assignment](https://code.tutsplus.com/tutorials/mass-assignment-rails-and-you--net-31695) by passing a hash into a [constructor](http://www.rubyist.net/~slagell/ruby/objinitialization.html).  The keys of the hash become instance variables, and the value of each instance variable is the value associated with the corresponding hash key.  In this way, Active Record is able to provide a convenient Ruby-based framework for managing SQL databases.
 
-This brings us back to `Quick Ticker`.  In essence, I built a very lightweight version of Active Record.  My [Scraper]()https://github.com/lair001/stocks-cli-gem/blob/master/lib/scraper.rb class packages data into a nested hash.  The attributes of instances of Stock, Desc, and Quote are [dynamically created and populated](https://github.com/lair001/stocks-cli-gem/blob/master/lib/table.rb) after an instance of Stock has [distributed](https://github.com/lair001/stocks-cli-gem/blob/master/lib/stock.rb) the appropriate hashes out of the nested hash to itself, its instance of Desc, and its instance of Quote.  In this case, the key-value pairs of the nested hash represent tables rather than rows.
+This brings us back to `Quick Ticker`.  In essence, I built a very lightweight version of Active Record.  My [Scraper](https://github.com/lair001/stocks-cli-gem/blob/master/lib/scraper.rb) class packages data into a nested hash.  The attributes of instances of Stock, Desc, and Quote are [dynamically created and populated](https://github.com/lair001/stocks-cli-gem/blob/master/lib/table.rb) after an instance of Stock has [distributed](https://github.com/lair001/stocks-cli-gem/blob/master/lib/stock.rb) the appropriate hashes out of the nested hash to itself, its instance of Desc, and its instance of Quote.  In this case, the key-value pairs of the nested hash represent tables rather than rows.
 
 Anything you could do nested hash you could also do with a nested array.  However, array indexes do not generally make for descriptive keys.  For instance, you may need to remember that `table[9][2]` is the value of the age column at row 10.  This will make your software project harder to develop and maintain.
 
