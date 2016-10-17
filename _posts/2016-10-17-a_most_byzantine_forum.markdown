@@ -9,4 +9,10 @@ Today, I am presenting my latest project that blends history with modern Web app
 
 A Most Byzantine Forum is lightweight forum software themed after the late Roman Empire (retroactively renamed the [Byzantine Empire](https://en.wikipedia.org/wiki/Byzantine_Empire) by historians).  It is loosely modeled after [`XenoForo`](https://en.wikipedia.org/wiki/XenForo) forums like this [one](https://forum.paradoxplaza.com/forum/index.php).
 
-The premise is simple.  Users can create an account.  Upon logging in, they are taken to a listing of threads.  By clicking on links consisting of a thread's title, they are taken to a listing of the thread's posts.  In this listing, the post's content and information about the user who created it is display.  By following a link consisting of a user's username, they can view the user's profile.  This profile contains information about the user's account along with a listing of all posts that the user has created.  They can also access a listing of all users through a navbar button.  
+The premise is simple.  Users can create an account.  Upon logging in, they are taken to a listing of threads.  By clicking a `Create` button in the navbar, they can create a new thread.  Links consisting of a thread's title take them to a listing of the thread's posts.  In this listing, the post's content and information about the user who created it is displayed.  By clicking on a `Create` button in the navbar, they can add a post to the thread.  Links consisting of a user's username takes them to the user's profile.  This profile contains information about the user's account along with a listing of all posts that the user has created.  They can also access a listing of all users through a navbar button.  
+
+There are also special users, adminstrators and moderators.  Administrators can alter the account information of any user.  Moderators can edit and delete content created by any user.
+
+In short, it behaves like a typical forum.  The Roman elements come from the color scheme and a tribute page for [Constantine XI](https://en.wikipedia.org/wiki/Constantine_XI_Palaiologos).  The moderators may also choose to limit discussion to Roman topics or roleplay.
+
+The real action takes place under the hood.
