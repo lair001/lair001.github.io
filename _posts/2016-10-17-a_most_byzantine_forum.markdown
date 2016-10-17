@@ -15,4 +15,4 @@ There are also special users, adminstrators and moderators.  Administrators can 
 
 In short, it behaves like a typical forum.  The Roman elements come from the color scheme and a tribute page for [Constantine XI](https://en.wikipedia.org/wiki/Constantine_XI_Palaiologos).  The moderators may also choose to limit discussion to Roman topics or roleplay.
 
-The real action takes place under the hood.
+The real action takes place under the hood.  At the heart of the app is an [`SQL`](https://en.wikipedia.org/wiki/SQL) database with tables that represent users, threads and posts.  A [table relation](https://en.wikipedia.org/wiki/Relation_(database)) scheme is implemented wherein the posts table has [`foreign keys`](https://en.wikipedia.org/wiki/Foreign_key) for a user and a thread and acts as a [`join table`](https://en.wikipedia.org/wiki/Associative_entity) for the users and threads tables.  In this way, a post belongs to a user and a thread, a user has many posts, a table has many posts, a user has many threads through posts, and a thread has many users through posts.
