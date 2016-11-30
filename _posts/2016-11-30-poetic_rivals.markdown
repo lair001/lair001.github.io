@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Poetic Rivals"
-date:   2016-11-30 01:35:33 +0000
+date:   2016-11-29 20:35:34 -0500
 ---
 
 
