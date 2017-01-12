@@ -1,0 +1,24 @@
+---
+layout: post
+title:  "Building Modular And Testable Javascript Applications"
+date:   2017-01-12 02:26:43 +0000
+---
+
+
+Javascript makes it easy to write applications that share a namespace with the entire internet.  This statement is less hyperbole than would be ideal.  Unless you actively try to avoid it, most of your variables and functions will end up in a global namespace that is share with every piece of Javascript added to your project.  Unwary developers are eventually greeted by a host of subtle bugs as namespace collisions inevitably occur.
+
+[ES6](http://es6-features.org/#) is attempting to improve the situation by introducing classes and modules.  However, it will be several years before a typical user's browser catches up with the changes.  Using ES6 features in the interim for browser side Javascript requires the use of transpilers, which can greatly complicate your debug process as you are not debugging your own source code.  You are debugging the code that your source code transpiles into.
+
+The [immediately-invoked function expression](https://en.wikipedia.org/wiki/Immediately-invoked_function_expression) is often touted as the solution to Javascript's namespace woes.  However, another problem emerges when you reduce your project's global namespace footprint to zero.  Namely, it is impossible to unit test your code.
+
+Looking at major frameworks suggests a solution.  [jQuery](https://jquery.com/), [AngularJS](https://angularjs.org/), [React](https://facebook.github.io/react/), [Chai](http://chaijs.com/), and [Sinon.JS](http://sinonjs.org/) stuff their functionality into one or two objects in the global namespace.  In [Poetic Rivals](https://github.com/lair001), I developed a [Ruby on Rails](http://rubyonrails.org/) driven solution to achieve this.
+
+The first step is to be able to control the order in which the [Asset Pipeline](http://guides.rubyonrails.org/asset_pipeline.html) process files.  My method exploits the fact that the `require_tree` directive includes files in alphanumerical order.  In my [application.js](https://github.com/lair001/poetic-rivals/blob/master/app/assets/javascripts/application.js) file, I `//= require_tree ./modules` after all third party libraries are loaded.  In the directory tree under `app/assets/javascripts/modules`, directories and and files are prepending with a 3-digit number that resets on each level.  In this way, I control the order in which the files are included.
+
+The next step is to actually build the namespace.  My objective was to structure the namespace in a way that makes it easy to plug code from old projects into new ones.  Accordingly, I expose a `modules` object to the global namespace with various modules nested directly below it.  In Poetic Rivals, I have a `Utils` module, which includes general purpose utilities that I would want in most if not all projects, and a `Poetic Rivals` module, which contains code tailored for the current app.  In the `modules`, `Utils`, and `PoeticRivals` folders, there is a `config` folder and a `lib` folder.  The files in the `config` folder build the current level of the namespace.  The `lib` folder contains everything nested under that namespace.
+
+A look at `modules/001_config/001_environment.js` reveals that I am building the namespaces inside of IIFEs.  Since this IIFE builds the top level namespace that is exposed to the global namespace, I inject the global object into it as a variable named `global`.  I then attach a `modules` property to `global` that points to a new empty object.  There are a number of checks at this level.  If `modules` already exists but is not an object, then proceeding risks introducing subtle bugs by conflicting with the third party libraries.  If `modules` already exists as an object, it might be safe to proceed if the object is not null or an array.  Overriding another library's null object can also result in conflicts.  Although it is possible to attach properties to an array, doing so can be another source of subtle bugs.  If one of these risky scenarios exists, an error is thrown so the issue is brought to my attention.
+
+Looking at `modules/002_lib/002_PoeticRivals/001_config/001_environment..js`, you can see how I create the second level namespace.  At this level, an error is thrown if the namespace already exists in any form.  At some point, I want to be rest assured that I am in complete control of the namespace.  `PoeticRivals`'s `environment.js` file also creates a third level namespace solely to organize the project.  The `Utils` module does not have a third level namespace.  In any case, beyond the second level of `config` folders, properties are attached without any checks.
+
+Thanks for reading.  I hope my experiences with [Poetic Rivals](https://github.com/lair001) help some of you build well-engineered apps.
